@@ -3,7 +3,7 @@ import subprocess
 from multiprocessing import Pool
 
 # List of websites
-WEBSITES_GROUP = [
+websites_group= [
     "https://www.webmd.com/",
     "https://www.sciencedaily.com/",
     "https://www.wikipedia.org/",
@@ -33,9 +33,9 @@ def process_website(website):
 
 if __name__ == "__main__":
     # Create a pool of workers
-    with Pool(processes=len(WEBSITES_GROUP)) as pool:
+    with Pool(processes=len(websites_group)) as pool:
         # Execute each website processing function in parallel
-        results = pool.map(process_website, WEBSITES_GROUP)
+        results = pool.map(process_website, websites_group)
 
     # Create bookmark HTML file
     with open("bookmarks.html", "w") as bookmark_file:
